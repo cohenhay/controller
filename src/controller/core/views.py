@@ -7,8 +7,6 @@ from django.views.generic import TemplateView
 class HomeView(TemplateView):
     def get(self,request, *args, **kwargs):
         context = {}
-        print (request)
-        print(args,kwargs,"empty")
         return render(request , "home.html" , context)
         
 
