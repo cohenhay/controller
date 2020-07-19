@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'controller',
     'core',
     'rest_framework',
+    'django_filters',
+    'bootstrapform'
 
 ]
 
@@ -70,6 +72,9 @@ TEMPLATES = [
         },
     },
 ]
+
+MEDIA_URL = '/templates/snippets/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 WSGI_APPLICATION = 'controller.wsgi.application'
 

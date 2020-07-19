@@ -12,15 +12,11 @@ class Server(models.Model):
 
      def __str__(self):
           return self.hostname
-     
-
 
      @property
      def owner(self):
         return self.hostname
 
-    # def get_absolute_url(self):
-    #     return reverse("api-core:post-rud", kwargs={'pk': self.pk}) '/api/postings/1/'
     
      def get_api_url(self, request=None):
         return api_reverse("api-core:post-rud", kwargs={'pk': self.pk}, request=request)

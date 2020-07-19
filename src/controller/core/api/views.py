@@ -22,6 +22,7 @@ class ServerAPIView(mixins.CreateModelMixin, generics.ListAPIView): # DetailView
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+        
 
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)

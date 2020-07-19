@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
 integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link rel="icon" type="image/png" href="/snippets/images/logo.png" sizes="16x16">
+
 <style>
 * {
   box-sizing: border-box;
@@ -107,7 +108,6 @@ td
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
 }
-
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -135,7 +135,7 @@ td
 <header>
 
   <leftheader>
-    <img src="/snippets/images/logo.jpg" alt="controller" >
+    <img src="logo.jpg" alt="controller" >
   </leftheader>
 
   <rightheader>
@@ -143,18 +143,25 @@ td
     <p1 style"padding-right:50px">version:1.0</p1>
   </rightheader>
 
- 
 </header>
 <section>
   <article>
+    <form method="get">  {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+    </form>
     <table>
       <tr>
+        <th>ID</th> 
         <th>Hostname</th> 
         <th>IP Adress</th>
         <th>OS</th> 
+        <th>Command</th> 
       </tr> 
-        {% for obj in object_list %}
+        {% for obj in filter.qs %}
         <tr>
+            <td>
+            {{obj.id}}  
+            </td>
             <td>
             {{obj.hostname}}  
             </td>
@@ -163,6 +170,10 @@ td
             </td>
             <td>
             {{obj.os}}
+            </td>
+            <td>
+            <input id="pwd" placeholder="Enter command" name="command" style="padding-right:150px">
+            <button type="submit">Run</button>
             </td>
         </tr>
         {%endfor%}
@@ -187,7 +198,7 @@ td
         <a href="#">Restart-Service -Name Wildfly</a>
       </div>
     </div>
-    <img src="/snippets/images/copy.png" alt="copy">
+    <img src="controller/templates/snippets/media/copy2.jpg" alt="copy">
   </rightfooter>
 </body>
 </html>
