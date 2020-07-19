@@ -50,7 +50,7 @@ article {
   padding: 20px;
   width: 100%;
   background-color: #f1f1f1;
-  height: 600px; /* only for demonstration, should be removed */
+  height: 800px; /* only for demonstration, should be removed */
 }
 
 /* Clear floats after the columns */
@@ -131,52 +131,55 @@ td
   }
 }
 </style>
+
 </head>
 <body>
-
-
 <header>
-
-  <leftheader>
-    <img src="{% static 'logo.jpg' %}" alt="controller"  >
-  </leftheader>
-
-  <rightheader>
-    <p1>Lab name</p1><p1>&nbsp;</p1>
-    <p1 style"padding-right:50px">version:1.0</p1>
-  </rightheader>
+    <leftheader>
+      <img src="{% static 'logo.jpg' %}" alt="controller" >
+    </leftheader>
+    <rightheader>
+      <p1>Lab name</p1><p1>&nbsp;     
+      </p1>
+      <p1 style"padding-right:50px">version:1.0</p1>
+    </rightheader>
 
 </header>
 <section>
   <article>
-    <form method="get">  {{ filter.form.as_p }}
+    <form method="get" style="display: inline-block;">
+    {{ filter.form.as_p }}
     <button type="submit">Search</button>
     </form>
     <table>
       <tr>
-        <th>ID</th> 
-        <th>Hostname</th> 
-        <th>IP Adress</th>
-        <th>OS</th> 
-        <th>Command</th> 
+        <th>&emsp;<input type="checkbox"></th>
+        <th>&emsp;ID</th> 
+        <th>&emsp;Hostname</th> 
+        <th>&emsp;IP Adress</th>
+        <th>&emsp;OS</th> 
+        <th>&emsp;Command</th> 
       </tr> 
         {% for obj in filter.qs %}
         <tr>
             <td>
-            {{obj.id}}  
+              <input type="checkbox">
             </td>
             <td>
-            {{obj.hostname}}  
+              {{obj.id}}  
             </td>
             <td>
-            {{obj.ipadress}}
+              {{obj.hostname}}  
             </td>
             <td>
-            {{obj.os}}
+              {{obj.ipadress}}
             </td>
             <td>
-            <input id="pwd" placeholder="Enter command" name="command" style="padding-right:150px">
-            <button type="submit">Run</button>
+              {{obj.os}}
+            </td>
+            <td>
+              <input id="pwd" placeholder="Enter command" name="command" style="padding-right:150px">
+              <button type="submit">Run</button>
             </td>
         </tr>
         {%endfor%}

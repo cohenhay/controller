@@ -7,6 +7,5 @@ class CoreFilter(django_filters.FilterSet):
         model = Server
         fields = {
         'hostname': ['icontains',],
-        'ipadress': ['icontains',],
-        'os': ['icontains',],
+        'os':       ['icontains',],
         }
