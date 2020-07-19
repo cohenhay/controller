@@ -1,18 +1,14 @@
 
-from django.contrib import admin
+from django.conf.urls import url, include
 from django.urls import path,include
-from rest_framework import routers
-from django.conf.urls import url
+from django.contrib import admin
 from rest_framework_jwt.views import obtain_jwt_token
+from core.views import HomeView
 
-router = routers.DefaultRouter()
-# router.register(r'users', views.UserViewSet)
-
-
+app_name ='api-core'
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include(router.urls)),
-    path(r'^api-auth/', include('rest_framework.urls')),
-    url(r'^api/core/', include('core.api.urls')),
+    url(r'^admin/', admin.site.urls),
+    path('', HomeView.as_view()),
+    url(r'^api/auth/login/$', obtain_jwt_token, name='api-login'),
+    url(r'^api/core/', include('core.api.urls',namespace= 'api-core')),
 ]
-

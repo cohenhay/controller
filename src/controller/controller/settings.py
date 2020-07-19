@@ -134,5 +134,5 @@ REST_FRAMEWORK = {
     ),
 }
 
-SOCIAL_AUTH_URL_NAMESPACE = 'core-api'
+SOCIAL_AUTH_URL_NAMESPACE = 'api-core'
 

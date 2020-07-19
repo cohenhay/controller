@@ -91,7 +91,10 @@ rightfooter{
   font-size: 16px;
   border: none;
 }
-
+td
+{
+    padding:0 15px;
+}
 .dropdown {
   position: relative;
   display: inline-block;
@@ -144,7 +147,26 @@ rightfooter{
 </header>
 <section>
   <article>
-  <p1>servers</p1>
+    <table>
+      <tr>
+        <th>Hostname</th> 
+        <th>IP Adress</th>
+        <th>OS</th> 
+      </tr> 
+        {% for obj in object_list %}
+        <tr>
+            <td>
+            {{obj.hostname}}  
+            </td>
+            <td>
+            {{obj.ipadress}}
+            </td>
+            <td>
+            {{obj.os}}
+            </td>
+        </tr>
+        {%endfor%}
+    </table>
   </article>
 </section>
 

@@ -15,7 +15,7 @@ class ServerSerializer(serializers.ModelSerializer): # forms.ModelForm
             'os',
             'timestamp',
         ]
-        read_only_fields = ['id', 'hostname']
+        read_only_fields = ['id']
 
     # converts to JSON
     # validations for data passed
