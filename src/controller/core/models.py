@@ -17,6 +17,5 @@ class Server(models.Model):
      def owner(self):
         return self.hostname
 
-    
      def get_api_url(self, request=None):
         return api_reverse("api-core:post-rud", kwargs={'pk': self.pk}, request=request)
