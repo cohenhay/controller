@@ -12,8 +12,9 @@ app_name ='api-core'
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', views.search, name='search'),
+    url(r'', views.upload, name='upload'),
     url(r'^api/auth/login/$', obtain_jwt_token, name='api-login'),
-    url(r'^api/core/', include('core.api.urls',namespace= 'api-core')),
+    url(r'^api/core/', include('core.api.urls',namespace='api-core')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

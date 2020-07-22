@@ -51,6 +51,7 @@ article {
   width: 100%;
   background-color: #f1f1f1;
   height: 800px; /* only for demonstration, should be removed */
+  overflow: scroll;
 }
 
 /* Clear floats after the columns */
@@ -206,5 +207,10 @@ td
     </div>
     <img src="{% static 'copy3.png'%}" alt="copy" width="50" height="50">
   </rightfooter>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="importData">
+    <button type="submit">Upload servers data</button>
+  </form>
 </body>
 </html>

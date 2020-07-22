@@ -13,7 +13,6 @@ class ServerSerializer(serializers.ModelSerializer): # forms.ModelForm
             'hostname',
             'ipadress',
             'os',
-            'timestamp',
         ]
         read_only_fields = ['id']
 

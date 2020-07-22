@@ -8,7 +8,7 @@ class Server(models.Model):
      hostname= models.CharField(max_length=120)
      ipadress= models.GenericIPAddressField()
      os= models.CharField(max_length=120)
-     timestamp   = models.DateTimeField(auto_now_add=True)
+ 
 
      def __str__(self):
           return self.hostname

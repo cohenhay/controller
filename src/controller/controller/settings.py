@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'controller',
+    'import_export',
     'core',
     'rest_framework',
     'django_filters',
@@ -141,3 +142,7 @@ REST_FRAMEWORK = {
 
 SOCIAL_AUTH_URL_NAMESPACE = 'api-core'
 
+FILE_UPLOAD_HANDLERS = (
+    'django.core.files.uploadhandler.TemporaryFileUploadHandler',
+)
+IMPORT_EXPORT_USE_TRANSACTIONS = True
