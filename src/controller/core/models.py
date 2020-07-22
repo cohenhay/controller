@@ -9,10 +9,9 @@ class Server(models.Model):
      ipadress= models.GenericIPAddressField()
      os= models.CharField(max_length=120)
  
-
      def __str__(self):
           return self.hostname
-
+          
      @property
      def owner(self):
         return self.hostname

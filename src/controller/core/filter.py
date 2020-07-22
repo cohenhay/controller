@@ -8,4 +8,5 @@ class CoreFilter(django_filters.FilterSet):
         fields = {
         'hostname': ['icontains',],
         'os':       ['icontains',],
+        'ipadress': ['icontains',]
         }

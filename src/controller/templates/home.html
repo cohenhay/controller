@@ -1,6 +1,4 @@
 {% load static %}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" 
 integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'template.css' %}">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <link rel="icon" type="/core/png" href="{% static 'icon.png'%}" sizes="16x16">
-
 <style>
 * {
   box-sizing: border-box;
@@ -19,6 +19,7 @@ integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhk
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 /* Style the header */
 header {
   background-color: black;
@@ -46,14 +47,19 @@ nav ul {
 }
 
 article {
-  float: left;
-  padding: 20px;
+  width: 100%;
+  background-color: #f1f1f1;
+  height: 100px; /* only for demonstration, should be removed */
+  position: fixed;
+}
+
+section{
   width: 100%;
   background-color: #f1f1f1;
   height: 800px; /* only for demonstration, should be removed */
   overflow: scroll;
+  padding-top:100px;
 }
-
 /* Clear floats after the columns */
 section:after {
   content: "";
@@ -137,22 +143,45 @@ td
 <body>
 <header>
     <leftheader>
-      <img src="{% static 'logo.jpg' %}" alt="controller" >
+      <img src="{% static 'logo.jpg' %}" alt="controller">
     </leftheader>
     <rightheader>
-      <p1>Lab name</p1><p1>&nbsp;     
+      <p1>Griffin3 Lab</p1><p1>&nbsp;     
       </p1>
-      <p1 style"padding-right:50px">version:1.0</p1>
+      <p1>version:1.0</p1>
     </rightheader>
 
 </header>
-<section>
+
+
   <article>
-    <form method="get" style="display: inline-block;">
-    {{ filter.form.as_p }}
-    <button type="submit">Search</button>
+    <form method="get">
+      <div class="form-row">
+            <div class="form-group col-12">
+                <div class="input-group" style="padding-left:400px">
+                   &emsp; {{ filter.form.as_p }}&emsp;
+                    <span class="input-group-append">
+                        <div class="input-group-text bg-transparent">
+                            <button type="submit">Search</button>
+                        </div>
+                    </span>
+                </div>
+            </div>        
+        </div>
     </form>
-    <table>
+    <div class="dropdown" style="padding-left:150px">
+      <button class="dropbtn">Command List</button>
+      <div class="dropdown-content">
+        <a href="#">shutdown –r</a>
+        <a href="#">reboot</a>
+        <a href="#">docker restart</a>
+        <a href="#">Restart-Service -Name Wildfly</a>
+      </div>
+    </div>
+    <img src="{% static 'copy3.png'%}" alt="copy" width="50" height="50">
+    </article>
+    <section >
+    <table style="margin-left:auto;margin-right:auto;">
       <tr>
         <th>&emsp;<input type="checkbox"></th>
         <th>&emsp;ID</th> 
@@ -185,9 +214,8 @@ td
         </tr>
         {%endfor%}
     </table>
-  </article>
+  
 </section>
-
 <footer>
   <leftfooter>
       <input id="pwd" placeholder="Enter command" name="command" style="padding-right:150px">
@@ -195,21 +223,9 @@ td
   </leftfooter>
       
 </footer>
-  <rightfooter>
-    <div class="dropdown">
-      <button class="dropbtn">Command List</button>
-      <div class="dropdown-content">
-        <a href="#">shutdown –r</a>
-        <a href="#">reboot</a>
-        <a href="#">docker restart</a>
-        <a href="#">Restart-Service -Name Wildfly</a>
-      </div>
-    </div>
-    <img src="{% static 'copy3.png'%}" alt="copy" width="50" height="50">
-  </rightfooter>
-  <form method="post" enctype="multipart/form-data">
+  <form method="post" enctype="multipart/form-data" >
     {% csrf_token %}
-    <input type="file" name="importData">
+    <input type="file" name="myfile" style="padding-left:300px">
     <button type="submit">Upload servers data</button>
   </form>
 </body>
